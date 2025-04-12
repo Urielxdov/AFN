@@ -1,5 +1,5 @@
 import tkinter as tk
-from nodo_ui import NodoUI
+from ui.node_ui import NodoUI
 
 class Window:
     def __init__(self):
