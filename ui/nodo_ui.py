@@ -1,5 +1,3 @@
-import tkinter as tk
-
 class NodoUI:
     def __init__(self, canvas, x, y, radio, number):
         self.canvas = canvas
@@ -9,6 +7,7 @@ class NodoUI:
         self.number = number
         self.draw()
 
+    
     def draw(self):
         x0 = self.x - self.radio
         y0 = self.y - self.radio
@@ -22,3 +21,9 @@ class NodoUI:
 
     def join_node(self, starting_position, ending_position):
         pass
+
+    def get_x(self):
+        return self.x
+    
+    def get_y(self):
+        return self.y
