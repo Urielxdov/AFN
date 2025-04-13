@@ -1,5 +1,5 @@
 import tkinter as tk
-from ui.node_ui import NodoUI
+from node_ui import NodoUI
 
 class Window:
     def __init__(self):
@@ -20,7 +20,8 @@ class Window:
       current_node = None
       for _ in range(10):
         current_node = self.add_nodes(current_node)
-        
+        self.add_nodes(current_node)
+      
 
       self.window.mainloop()
       
@@ -34,6 +35,10 @@ class Window:
         else self.generate_next_position([node.get_x(), node.get_y()])
       )
 
+      self.occupied_positions.add(position)
+
+      print(f"nodo: {[node.get_x(), node.get_y()] if node is not None else ""} \nnuevas: {position} \n\n\n")
+
       return NodoUI(self.canvas, position[0], position[1], self.NODE_RADIUS, self.quantity_nodes)
 
 
@@ -46,6 +51,7 @@ class Window:
         (x + NODE_DISTANCE, y + NODE_DISTANCE),
         (x + NODE_DISTANCE, y - NODE_DISTANCE),
       ]
+      print(f"intents: {intents}")
 
       for position in intents:
         if position not in self.occupied_positions:
